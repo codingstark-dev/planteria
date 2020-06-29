@@ -26,6 +26,9 @@ dependencies:
   get: ^3.1.0
   get_it: ^4.0.2
   velocity_x: ^0.4.0
+  qr_flutter: ^3.2.0
+  barcode_scan: ^3.0.1
+  avatar_glow:
 
 
   # The following adds the Cupertino Icons font to your application.
