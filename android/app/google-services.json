@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "623968141044",
+    "firebase_url": "https://planteria-b0fce.firebaseio.com",
+    "project_id": "planteria-b0fce",
+    "storage_bucket": "planteria-b0fce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623968141044:android:2a564fa70bfa6f372d28a1",
+        "android_client_info": {
+          "package_name": "com.planteria.org"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623968141044-40r3ll1vv6dqom21134711030h24us0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.planteria.org",
+            "certificate_hash": "b8380ba47071536746e3e97e5e50b243b7b59e1a"
+          }
+        },
+        {
+          "client_id": "623968141044-uad17kddekr8dn4c24s2s8di18421upt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWEo5YFIbL_HroOZ10xVi45bScnAMzQPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623968141044-uad17kddekr8dn4c24s2s8di18421upt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
