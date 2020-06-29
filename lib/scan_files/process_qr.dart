@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:planteria/scan_files/after_scanning.dart';
 import 'package:planteria/scan_files/loading_scan.dart';
 import 'package:planteria/scan_files/wrong_qr.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 
 enum ScanStatus{
@@ -23,14 +22,12 @@ ScanStatus _scanStatus;
 
 void process(){
   print(widget.result);
+  print("entered procesing...");
   try {
      _scanStatus = ScanStatus.noError;
-    
   } catch (e) {
   }
 }
-
-
 
 @override
   void initState() {
@@ -46,7 +43,7 @@ void process(){
         break;
       case ScanStatus.resultError: return WrongQr() ;
         break;
-       case ScanStatus.noError: return AfterScanning();
+       case ScanStatus.noError: return AfterScanning(result: widget.result,);
     }
   }
 }

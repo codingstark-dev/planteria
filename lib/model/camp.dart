@@ -4,5 +4,6 @@ class CampaignModel{
   final String dueDate;
   final int target;
   final int volenteers;
-  CampaignModel({this.campName, this.dueDate, this.target, this.volenteers});
+  final int planted;
+  CampaignModel({this.campName, this.dueDate, this.target, this.volenteers, this.planted});
 }
