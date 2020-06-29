@@ -21,11 +21,32 @@ class Database{
       print("data not added with exception $e");
       return null;
     }
-    
-
-
+  
   }
 
+
+//get campaigns list
+
+    List<CampaignModel> _camaignListFromSnapshot(QuerySnapshot snapshot){
+      return snapshot.documents.map((doc){
+          return CampaignModel(
+            campName: doc.data['campName'] ?? '',
+            dueDate: doc.data['dueDate'],
+            target: doc.data['target'] ?? '',
+            volenteers: doc.data['volenteers'] ?? 0,
+            planted: doc.data['planted'] ?? 0,
+          );
+      }).toList();
+    }
+
+    //get shop sream
+    Stream<List<CampaignModel>> get shops{
+      return campaignCollection
+    //  .where('businessStatus', isEqualTo: 'verified' )
+    //  .where('shopLocation', isEqualTo: 'Hyderabad')
+      .snapshots()
+      .map(_camaignListFromSnapshot);
+    }
 
 
 }

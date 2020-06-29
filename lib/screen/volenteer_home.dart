@@ -89,87 +89,84 @@ class _VolenteerHomeState extends State<VolenteerHome> {
             ),
             Container(
               padding: EdgeInsets.only(top: 20),
-              height: MediaQuery.of(context).size.height -  130,
-              child: ListView(
-                children: [
-                  Card(
-                    color: Colors.greenAccent[100],
-                    child: Container(
-                      child: Column(
+            //  height: MediaQuery.of(context).size.height -  130,
+              child: Card(
+                color: Colors.greenAccent[100],
+                child: Container(
+                 // height: 100,
+                  child: Column(
+                    children: [
+                      Stack(
                         children: [
-                          Stack(
-                            children: [
-                              Container(
-                                color: Colors.green[300],
-                                height: 40,
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                child: Text("Green Maharashtra", 
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                ),
-                              ),
-                            ],
-                          ),
-
                           Container(
-                            padding: EdgeInsets.all(5),
-                            alignment: Alignment.centerLeft,
-                            child: Text("Saplings Targeted: 5,00,000",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            ),
+                            color: Colors.green[300],
+                            height: 40,
                           ),
                           Container(
-                            padding: EdgeInsets.all(5),
-                            alignment: Alignment.centerLeft,
-                            child: Text("Saplings Planted : 1,23,000",
+                            alignment: Alignment.center,
+                            child: Text("Green Maharashtra", 
                             style: TextStyle(
-                              fontSize: 18,
+                              color: Colors.white,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                             ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            alignment: Alignment.centerLeft,
-                            child: Text("Volenteers : 103",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            ),
-                          ),
-
-                          FlatButton(
-                            onPressed: (){
-                              ScanQr(context: context).scanQRFunction();
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              color: Colors.green[400],
-                              height: 40,
-                              width: MediaQuery.of(context).size.width,
-                              child: Text("SCAN", 
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w300,
-                              ),
-                              ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  )
-                ],
+
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        alignment: Alignment.centerLeft,
+                        child: Text("Saplings Targeted: 5,00,000",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        alignment: Alignment.centerLeft,
+                        child: Text("Saplings Planted : 1,23,000",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        alignment: Alignment.centerLeft,
+                        child: Text("Volenteers : 103",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ),
+
+                      FlatButton(
+                        onPressed: (){
+                          ScanQr(context: context).scanQRFunction();
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          color: Colors.green[400],
+                          height: 40,
+                          width: MediaQuery.of(context).size.width,
+                          child: Text("SCAN", 
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               )
             ),
           ],
