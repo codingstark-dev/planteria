@@ -12,9 +12,23 @@ class CreateCampaign extends StatefulWidget {
 }
 
 class _CreateCampaignState extends State<CreateCampaign> {
+  String campName;
+  String dueDate;
+  int target;
+
+
+void validate(){
+  print(dueDate);
+  print(campName);
+  print(target);
+  
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: Size(100, 50),
         child: VxAppBar(
@@ -24,13 +38,27 @@ class _CreateCampaignState extends State<CreateCampaign> {
         ),
       ),
       body: Container(
+        padding: EdgeInsets.all(10),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          "Campaign Name".text.xl.start.make().pLTRB(0, 20, 0, 0),
+          Text("Campaign Name",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400
+          )
+          ),
+
           TextFormField(
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+            ),
             decoration: InputDecoration(
               hintText: 'Eg. Green India',
-              hintStyle: TextStyle(fontSize: 16, color: Vx.white),
+              hintStyle: TextStyle(fontSize: 16, color: Colors.grey[600].withOpacity(0.75) ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
@@ -40,14 +68,30 @@ class _CreateCampaignState extends State<CreateCampaign> {
               ),
               filled: true,
               contentPadding: EdgeInsets.all(16),
-              fillColor: Vx.hexToColor("#4bbe9b"),
+              fillColor: Colors.tealAccent[400].withOpacity(0.3),
             ),
-          ).p12(),
-          "No. Of Sapling Target".text.xl.start.make(),
+
+            onChanged: (value) => campName = value,
+          ),
+          SizedBox(height: 20),
+
+          Text("No. Of Sapling Target",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400
+          )
+          ),
+
           TextFormField(
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+            ),
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               hintText: 'Eg. 10000',
-              hintStyle: TextStyle(fontSize: 16, color: Vx.white),
+              hintStyle: TextStyle(fontSize: 16, color: Colors.grey[600].withOpacity(0.75)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
@@ -57,13 +101,24 @@ class _CreateCampaignState extends State<CreateCampaign> {
               ),
               filled: true,
               contentPadding: EdgeInsets.all(16),
-              fillColor: Vx.hexToColor(sl<Customcolor>().greenish),
+              fillColor: Colors.tealAccent[400].withOpacity(0.3),
             ),
-          ).p12(),
-          "Deadline".text.xl.start.make(),
+
+            onChanged: (value) => target = int.parse(value)
+          ),
+          SizedBox(height: 20),
+
+          
+          Text("Deadline",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400
+          )
+          ),
           FlatButton(
               clipBehavior: Clip.hardEdge,
-              color: Vx.hexToColor(sl<Customcolor>().greenish),
+              color: Colors.tealAccent[400].withOpacity(0.3),
               onPressed: () async {
                 await showDatePicker(
                     context: (context),
@@ -85,19 +140,51 @@ class _CreateCampaignState extends State<CreateCampaign> {
                         ),
                         child: child,
                       );
-                    }).then((value) => print(value));
+                    }).then((value){
+                      setState(() {
+                        dueDate = value.day.toString() + "/" + value.month.toString() + "/" + value.year.toString();
+                      });
+                        
+                    } );
               },
-              child: "Select Date".text.white.make()),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 60,
+                alignment: Alignment.centerLeft,
+                child: dueDate==null?
+                
+                 Text("Select Date", style: TextStyle(fontSize: 16, color: Colors.grey[600].withOpacity(0.75), fontWeight: FontWeight.bold),)
+                 :
+                 Text(dueDate,style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold) )
+                 ,
+              )
+              
+              ),
+              SizedBox(height: 30,),
+
+
           FlatButton(
-              padding: EdgeInsets.fromLTRB(150, 0, 150, 0),
-              color: Vx.gray300,
+            //  padding: EdgeInsets.fromLTRB(150, 0, 150, 0),
+              color: Color(0xff4bbe9b),
+              // hoverColor: Colors.white,
+              // splashColor: Colors.white,
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Campaign()));
+                validate();
               },
-              child: "Create".text.make())
+              child: Container(
+                height: 60,
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.center,
+                color: Color(0xff4bbe9b),
+                child: Text("CREATE",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white
+                ),
+                ),
+              )
+              
+              )
         ],
       )),
     );
