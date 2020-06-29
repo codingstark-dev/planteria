@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:planteria/helper/color.dart';
+import 'package:planteria/model/camp.dart';
 import 'package:planteria/screen/campaign.dart';
+import 'package:planteria/service/database.dart';
 import 'package:planteria/service/locator.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -12,16 +14,26 @@ class CreateCampaign extends StatefulWidget {
 }
 
 class _CreateCampaignState extends State<CreateCampaign> {
+
+  
   String campName;
   String dueDate;
   int target;
+  CampaignModel campaign;
 
 
-void validate(){
-  print(dueDate);
+void validate() async {
+  CampaignModel campaign = CampaignModel(
+    campName: campName,
+    dueDate: dueDate,
+    target: target
+  );
+
   print(campName);
   print(target);
-  
+  String docName = campName.replaceAll(" ", "");
+ await Database().createCampaign(campaign, docName);
+
 }
 
 
