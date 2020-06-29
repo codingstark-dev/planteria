@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planteria/helper/color.dart';
+import 'package:planteria/scan_files/scan.dart';
 import 'package:planteria/service/locator.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -39,11 +40,6 @@ class _VolenteerHomeState extends State<VolenteerHome> {
                 child: FlatButton(
                   padding: EdgeInsets.symmetric(horizontal: 50),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                VolenteerHome()));
                   },
                   child: "Achievements".text.xl2.make(),
                   clipBehavior: Clip.antiAlias,
@@ -59,11 +55,6 @@ class _VolenteerHomeState extends State<VolenteerHome> {
                 child: FlatButton(
                   padding: EdgeInsets.symmetric(horizontal: 50),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                VolenteerHome()));
                   },
                   child: "My Account".text.xl2.make(),
                   clipBehavior: Clip.antiAlias,
@@ -157,7 +148,9 @@ class _VolenteerHomeState extends State<VolenteerHome> {
                           ),
 
                           FlatButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              ScanQr(context: context).scanQRFunction();
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               color: Colors.green[400],
