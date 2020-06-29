@@ -49,4 +49,28 @@ class Database{
     }
 
 
+  getCampDetails(String result){
+    return Firestore.instance
+      .collection('campaigns')
+      .where('campName', isEqualTo: result )
+      .getDocuments();
+  }
+
+
+Future updateCount(int count, String docName) async{
+      try{
+      final DocumentReference documentReference = Firestore.instance.document("campaigns/$docName");
+      Map<String, dynamic> data =  <String, dynamic>{
+          "planted" : count,
+      };
+      documentReference.updateData(data).whenComplete(() {
+          }).catchError((e) =>  print("error while adding first time is $e"));
+    }
+    catch (e) {
+      print("data not added with exception $e");
+      return null;
+    }
+}
+
+
 }

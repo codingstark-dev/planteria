@@ -34,6 +34,29 @@ void validate() async {
   String docName = campName.replaceAll(" ", "");
  await Database().createCampaign(campaign, docName);
 
+    showDialog(context: context,
+          builder: (context){
+            return AlertDialog(
+              title: Text("Campaign Created",
+              style: TextStyle(
+                color: Colors.green[400]
+              ),
+              ),
+              actions: [
+                RaisedButton(
+                color:Color.fromARGB(255, 0, 57, 106),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                } ,
+                child: Text("OK"),
+                )
+              ],
+            );
+          }
+          );
+
+
 }
 
 

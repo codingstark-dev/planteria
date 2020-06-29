@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:planteria/helper/color.dart';
 import 'package:planteria/model/camp.dart';
 import 'package:planteria/screen/createCam.dart';
+import 'package:planteria/screen/more_info.dart';
 import 'package:planteria/screen/volenteer_Home.dart';
 import 'package:planteria/service/database.dart';
 import 'package:planteria/service/locator.dart';
@@ -165,14 +166,19 @@ class _GovHomeState extends State<GovHome> {
 
                         FlatButton(
                           onPressed: (){
-                         //   ScanQr(context: context).scanQRFunction();
+                          Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                MoreInfo(camp: camp)));
+                         
                           },
                           child: Container(
                             alignment: Alignment.center,
                             color: Colors.green[400],
                             height: 40,
                             width: MediaQuery.of(context).size.width,
-                            child: Text("SCAN", 
+                            child: Text("More Info", 
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,

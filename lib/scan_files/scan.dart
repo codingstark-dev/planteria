@@ -15,7 +15,7 @@ class ScanQr{
           print("result is: $result");
             if(result!=""){          
             Navigator.push(context, 
-            MaterialPageRoute(builder: (context)=> ProcessingQR() ));
+            MaterialPageRoute(builder: (context)=> ProcessingQR(result: result,) ));
     
               }
     } on PlatformException catch (ex) {
